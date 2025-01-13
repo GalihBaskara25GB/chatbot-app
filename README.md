@@ -1,3 +1,6 @@
+## CHATBRUH - The AI Chatbot
+This is an app that uses utilize the powerfull OpenAI's ChatGPT. Built using [Next.js](https://nextjs.org), [Vercel AI SDK](https://sdk.vercel.ai/docs/introduction) and [ShadCN UI](https://ui.shadcn.com/). Ask anything and Chatbruh will answer it for you.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
