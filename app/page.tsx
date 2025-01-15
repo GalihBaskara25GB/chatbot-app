@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start bg-neutral-900 h-dvh">
+    <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start bg-neutral-900 h-full">
       <div className="fixed top-0 w-full h-20 max-h-20 bg-neutral-900">
         <div className="flex flex-row items-center justify-between h-20 px-5">
           <BrandPopover />

@@ -27,7 +27,7 @@ export default function Chat() {
 
     return (
         <>
-            <div className='flex flex-col w-full max-w-lg py-24 mx-auto h-screen sm:h-dvh overflow-auto' ref={chatContainerRef}>
+            <div className='flex flex-col w-full max-w-lg py-24 mx-auto h-screen overflow-auto' ref={chatContainerRef}>
                 {messages.map((message) => (
                     <div key={message.id} className={`flex flex-row items-start gap-2 py-1 px-2 ${message.role === 'user' ? 'justify-end' : 'justify-start mb-2'}`}>
                         {message.role !== 'user' && (
@@ -57,7 +57,7 @@ export default function Chat() {
                     </div>
                 ))}
             </div>
-            <form onSubmit={handleSubmit} className='absolute bottom-0 w-full p-2 shadow-xl bg-neutral-900'>
+            <form onSubmit={handleSubmit} className='fixed bottom-0 w-full p-2 shadow-xl bg-neutral-900'>
                 <Input
                     className='max-w-lg p-2 mb-4 border border-gray-300 rounded shadow-xl mx-auto'
                     placeholder='ask anything...'
