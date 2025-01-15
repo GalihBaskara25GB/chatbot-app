@@ -7,14 +7,14 @@ import Image from 'next/image';
 
 export default function Chat() {
     const { messages, input, handleInputChange, handleSubmit } = useChat();
-    const chatContainerRef = useRef(null);
+    const chatContainerRef = useRef<HTMLDivElement>(null);
 
     const Scroll = () => {
-        const { scrollHeight, scrollTop, clientHeight } = chatContainerRef.current
-        const atBottom = scrollHeight - clientHeight <= scrollTop + 1;
+        if (!chatContainerRef.current) return false;
+        const atBottom = chatContainerRef.current.scrollHeight - chatContainerRef.current.clientHeight <= chatContainerRef.current.scrollTop + 1;
 
         if (!atBottom) {
-            chatContainerRef.current?.scrollTo(0, scrollHeight)
+            chatContainerRef.current?.scrollTo(0, chatContainerRef.current.scrollHeight)
         }
     }
 
