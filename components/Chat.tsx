@@ -13,6 +13,9 @@ export default function Chat() {
         if (!chatContainerRef.current) return false;
         const atBottom = chatContainerRef.current.scrollHeight - chatContainerRef.current.clientHeight <= chatContainerRef.current.scrollTop + 1;
 
+        if (atBottom && messages.length <= 1) {
+            chatContainerRef.current?.scrollTo(0, 0)
+        }
         if (!atBottom) {
             chatContainerRef.current?.scrollTo(0, chatContainerRef.current.scrollHeight)
         }
