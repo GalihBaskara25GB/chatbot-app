@@ -13,9 +13,6 @@ export default function Chat() {
         if (!chatContainerRef.current) return false;
         const atBottom = chatContainerRef.current.scrollHeight - chatContainerRef.current.clientHeight <= chatContainerRef.current.scrollTop + 1;
 
-        if (atBottom && messages.length <= 1) {
-            chatContainerRef.current?.scrollTo(0, 0)
-        }
         if (!atBottom) {
             chatContainerRef.current?.scrollTo(0, chatContainerRef.current.scrollHeight)
         }
@@ -57,12 +54,18 @@ export default function Chat() {
                     </div>
                 ))}
             </div>
-            <form onSubmit={handleSubmit} className='fixed bottom-0 w-full p-2 shadow-xl bg-neutral-900'>
+            <form  className='fixed bottom-0 w-full p-2 shadow-xl bg-neutral-900'>
                 <Input
                     className='max-w-lg p-2 mb-4 border border-gray-300 rounded shadow-xl mx-auto'
                     placeholder='ask anything...'
                     value={input}
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange}
+                    onKeyDown={async (event) => {
+                        if (event.key === "Enter") {
+                            event.currentTarget.blur()
+                            handleSubmit(event, {});
+                        }
+                    }}/>
             </form>
         </>
     )
